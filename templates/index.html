@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beautiful Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #00b4db, #0083b0);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .calc-container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 450px;
+    }
+    .result-box {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .form-control, .form-select {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calc-container">
+    <h2 class="text-center mb-4 text-primary">🧮 Beautiful Calculator</h2>
+    <form method="POST">
+      <input type="number" class="form-control" name="num1" placeholder="Enter first number" required>
+      
+      <select class="form-select" name="operation" required>
+        <option value="add">➕ Add</option>
+        <option value="sub">➖ Subtract</option>
+        <option value="mul">✖️ Multiply</option>
+        <option value="div">➗ Divide</option>
+      </select>
+      
+      <input type="number" class="form-control" name="num2" placeholder="Enter second number" required>
+
+      <button type="submit" class="btn btn-primary w-100">Calculate</button>
+    </form>
+
+    {% if result is not none %}
+    <div class="result-box">
+      <strong>Result:</strong> {{ result }}
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
+
